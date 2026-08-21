@@ -1,3 +1,45 @@
 <!doctype html>
-<html lang="ja"><head><meta charset="utf-8"><title>ワンピースカード BOX抽選情報</title></head>
-<body><p>まだ収集が実行されていません。GitHub Actionsの初回実行後に自動更新されます。</p></body></html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>ワンピースカード BOX抽選情報(首都圏・オンライン)</title>
+<style>
+  :root { color-scheme: light dark; }
+  body { font-family: -apple-system, "Hiragino Sans", "Yu Gothic", sans-serif; max-width: 900px; margin: 0 auto; padding: 1rem; }
+  h1 { font-size: 1.3rem; }
+  .meta { color: #777; font-size: 0.85rem; margin-bottom: 1rem; }
+  input[type=text] { width: 100%; padding: 0.5rem; font-size: 1rem; box-sizing: border-box; margin-bottom: 1rem; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: left; padding: 0.5rem; border-bottom: 1px solid #ddd; vertical-align: top; }
+  tr.urgent td { color: #c0392b; font-weight: bold; }
+  tr.urgent td:first-child::before { content: "🔥 "; }
+  a { color: inherit; }
+  .archive-toggle { margin-top: 2rem; cursor: pointer; }
+</style>
+</head>
+<body>
+<h1>ワンピースカード BOX抽選情報</h1>
+<p class="meta">対象: 首都圏(東京・神奈川・埼玉・千葉)の店頭受取、またはオンライン配送の抽選のみ / 最終更新: 2026-08-21 12:32 JST</p>
+
+<input type="text" id="filterBox" placeholder="店舗名・商品名で絞り込み">
+
+<table id="listingTable">
+<thead>
+<tr><th>締切</th><th>商品名</th><th>店舗</th><th>受取方法</th><th>応募方法</th><th>詳細</th></tr>
+</thead>
+<tbody>
+
+</tbody>
+</table>
+
+<script>
+document.getElementById('filterBox').addEventListener('input', function (e) {
+  var q = e.target.value.trim().toLowerCase();
+  document.querySelectorAll('#listingTable tbody tr').forEach(function (row) {
+    row.style.display = row.dataset.search.includes(q) ? '' : 'none';
+  });
+});
+</script>
+</body>
+</html>
